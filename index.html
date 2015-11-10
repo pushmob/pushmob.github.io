@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>pushmob</title>
+    <title>PushMob</title>
     <link rel="stylesheet" href="css/foundation.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <script src="js/vendor/modernizr.js"></script>
     <script src="js/qrcode.js"></script>
     <script type="text/javascript">
+        var isApiReady = false;
         (function (p, u, s, h) {
             p._pcq = p._pcq || [];
             p._pcq.push(['_currentTime', Date.now()]);
@@ -22,11 +23,16 @@
         })(window, document);
         function callbackFunction() {
             console.log('API is ready');
+            isApiReady = true;
+            document.getElementById('generateButton').innerHTML = "Generate QR Code";
         }
 
     </script>
     <script>
         function generateQrCode() {
+            if(!isApiReady) {
+                return;
+            }
             var qrCode = document.getElementById('qrcode');
             var top = qrCode.getBoundingClientRect().top;
             console.log(top);
@@ -45,10 +51,10 @@
 <body>
 
 <div class="row  banner">
-    <div class="large-6 columns">
+    <div class="large-6 small-6 columns">
         <img class="banner-img" src="img/logo.png">
     </div>
-    <div class="large-6 columns">
+    <div class="large-6 small-6 columns">
         <img class="banner-img-right" src="img/pushcrew.png">
     </div>
 </div>
@@ -59,10 +65,9 @@
         <img class="" src="img/logo-new.png">
     </div>
     <div class="large-4  columns  main-right">
-        <img src="img/googel-play-badge.png" style="padding: 16px">
+        <a target="_blank" href="https://play.google.com/store/apps/details?id=in.abhishekbatra.pushmob"><img src="img/googel-play-badge.png" style="padding: 32px"></a>
         <div id="qrcode"></div>
-        <a style="margin-top: 15%;" href="#" onclick="generateQrCode()" id="generateButton" class="small radius button">Generate
-            QR Code</a><br/>
+        <a style="margin-top: 15%;" href="#" onclick="generateQrCode()" id="generateButton" class="small radius button">Please Wait</a><br/>
 
         <p class="p-white">Use PushMob on your phone to scan the code</p>
 
