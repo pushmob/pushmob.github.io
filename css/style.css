@@ -1,0 +1,55 @@
+.banner {
+    background-color: #1976D2;
+}
+
+.banner-img {
+    width: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 8px;
+}
+
+.banner-img-right {
+    width: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    float: right;
+    margin-right: 16px;
+}
+
+.main {
+    background-color: #FFFDE7;
+}
+
+.main-left {
+    text-align: center;
+    height: 100%;
+}
+
+.main-left-image {
+    margin: 50px;
+}
+
+.main-right {
+    text-align: center;
+    margin-top: 5%;
+}
+
+
+#qrcode img {
+    display: inline !important;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.para-main {
+    text-align: center;
+    color: white;
+}
+
+.fixed-height {
+    height: 300px;
+}

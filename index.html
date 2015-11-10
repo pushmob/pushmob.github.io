@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>pushmob</title>
+    <link rel="stylesheet" href="css/foundation.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/qrcode.js"></script>
+    <script type="text/javascript">
+        (function (p, u, s, h) {
+            p._pcq = p._pcq || [];
+            p._pcq.push(['_currentTime', Date.now()]);
+            p._pcq.push(['APIReady', callbackFunction]);
+            s = u.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://cdn.pushcrew.com/js/e43acbe1d45ddf5de386e8c95921a003.js';
+            h = u.getElementsByTagName('script')[0];
+            h.parentNode.insertBefore(s, h);
+        })(window, document);
+        function callbackFunction() {
+            console.log('API is ready');
+        }
+
+    </script>
+    <script>
+        function generateQrCode() {
+            var qrCode = document.getElementById('qrcode');
+            var top = qrCode.getBoundingClientRect().top;
+            console.log(top);
+            new QRCode(qrCode, {
+                text: pushcrew.subscriberId,
+                width: 160,
+                height: 160,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            document.getElementById('generateButton').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+
+<div class="row  banner">
+    <div class="large-6 columns">
+        <img class="banner-img" src="img/logo.png">
+    </div>
+    <div class="large-6 columns">
+        <img class="banner-img-right" src="img/pushcrew.png">
+    </div>
+</div>
+
+
+<div class="row  main">
+    <div class="large-8 columns">
+        <img class="" src="img/logo-new.png">
+    </div>
+    <div class="large-4  columns  main-right">
+        <img src="img/googel-play-badge.png" style="padding: 16px">
+        <div id="qrcode"></div>
+        <a style="margin-top: 15%;" href="#" onclick="generateQrCode()" id="generateButton" class="small radius button">Generate
+            QR Code</a><br/>
+
+        <p class="p-white">Use PushMob on your phone to scan the code</p>
+
+    </div>
+</div>
+
+<div class="row banner">
+    <div class="columns large-1 large-centered"></div>
+    <div class="columns large-10 large-centered">
+        <p class="para-main" style="padding-top: 16px">You know why you miss most of your calls and messages?
+            Because your phone is in the other room or a while different floor. Ah, first world problems. As long as
+            your phone is connected to some sort of internet, pushmob will blast off notifications to your browser
+            instantly</p>
+    </div>
+    <div class="columns large-1 large-centered"></div>
+</div>
+
+<div class="row footer">
+    <p><i>Created with &#9829; by batraabhishek, powered by pushcrew.</i></p>
+</div>
+
+<script src="js/vendor/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+</body>
+</html>
