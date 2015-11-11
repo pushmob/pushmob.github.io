@@ -52,3 +52,12 @@
 .fixed-height {
     height: 300px;
 }
+
+.center-align {
+    text-align: center;
+}
+
+.heading {
+    padding-top: 8px;
+    color: #0D47A1;
+}
