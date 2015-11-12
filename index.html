@@ -33,6 +33,12 @@
             if(!isApiReady) {
                 return;
             }
+
+            if(!pushcrew.subscriberId) {
+                window._pcq.push(['triggerOptIn',{httpWindowOnly: true}]);
+                return;
+            }
+
             var qrCode = document.getElementById('qrcode');
             var top = qrCode.getBoundingClientRect().top;
             console.log(top);
